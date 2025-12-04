@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Menu | Namoora Sobagu</title>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #f7e15b;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    h1 {
+        text-align: center;
+        background-color: #d69a17;
+        color: black;
+        padding: 20px 0;
+        margin: 0;
+        font-size: 40px;
+        font-weight: bold;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    }
+
+    .home-btn {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        background: white;
+        padding: 12px 20px;
+        border-radius: 30px;
+        font-size: 18px;
+        font-weight: bold;
+        text-decoration: none;
+        color: black;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    }
+    .home-btn:hover { background: #d69a17; color:white;}
+
+    .menu-container {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        padding: 60px 20px;
+        flex-wrap: wrap;
+    }
+
+    .menu-card {
+        background: #f7e15b;
+        border-radius: 20px;
+        width: 260px;
+        height: 260px;
+        box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+        overflow: hidden;
+        transition: .3s ease;
+        cursor: pointer;
+    }
+
+    .menu-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .menu-card:hover {
+        transform: scale(1.08);
+        box-shadow: 0 12px 20px rgba(0,0,0,0.3);
+    }
+
+    .category-title {
+        text-align: center;
+        font-size: 20px;
+        font-weight: bold;
+        margin-top: 10px;
+        color: #7a0c0c;
+    }
+</style>
+
+</head>
+<body>
+
+<!-- HOME BUTTON -->
+<a href="../main_page/mainpage.html" class="home-btn">🏠 Home</a>
+
+<h1>MENU</h1>
+
+<div class="menu-container">
+
+    <!-- VEG -->
+    <a href="veg/veg.html" style="text-decoration:none;">
+        <div class="menu-card">
+            <img src="veg/veg.png" alt="Veg">
+        </div>
+        <div class="category-title">VEG</div>
+    </a>
+
+    <!-- NON-VEG -->
+    <a href="non_veg/Non_veg.html" style="text-decoration:none;">
+        <div class="menu-card">
+            <img src="non_veg/download__1_-removebg-preview.png" alt="Non Veg">
+        </div>
+        <div class="category-title">NON-VEG</div>
+    </a>
+
+    <!-- BEVERAGES -->
+    <a href="beverages/beverages.html" style="text-decoration:none;">
+        <div class="menu-card">
+            <img src="beverages/8f6a6b7f-a0c4-4212-9263-97992c37bea2-removebg-preview.png" alt="Beverages">
+        </div>
+        <div class="category-title">BEVERAGES</div>
+    </a>
+
+</div>
+
+</body>
+</html>

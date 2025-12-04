@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Namoora Sobagu | Home</title>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #f7e15b;
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+    }
+
+    /* Header */
+    .header {
+        background-color: #d69a17;
+        padding: 20px 0;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    }
+
+    .header h1 {
+        margin: 0;
+        font-size: 40px;
+        font-weight: bold;
+        color: black;
+    }
+
+    /* Navigation */
+    .nav {
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        flex-wrap: wrap;
+    }
+
+    .nav a {
+        background: white;
+        padding: 12px 25px;
+        border-radius: 30px;
+        font-size: 20px;
+        font-weight: bold;
+        color: black;
+        text-decoration: none;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+        transition: .3s;
+    }
+
+    .nav a:hover {
+        background: #d69a17;
+        color: white;
+    }
+
+    /* Logo */
+    .logo {
+        margin-top: 20px;
+    }
+
+    .logo img {
+        height: 300px;
+    }
+
+    /* MASONRY GRID */
+    .grid {
+        width: 100%;
+        margin: 40px auto;
+        column-count: 3;
+        column-gap: 20px;
+    }
+
+    .grid img {
+        width: 100%;
+        margin-bottom: 20px;
+        border-radius: 15px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        transition: .3s;
+        break-inside: avoid;
+        background-color: aliceblue;
+    }
+
+    .grid img:hover {
+        transform: scale(1.05);
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+        .grid { column-count: 2; }
+    }
+    @media (max-width: 600px) {
+        .grid { column-count: 1; }
+    }
+</style>
+
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+    <h1>NAMOORA SOBAGU</h1>
+</div>
+
+<!-- LOGO -->
+<div class="logo">
+    <img src="Yellow_Brown_Minimalist_Illustration_Kitchen_And_Restaurant_Logo-removebg-preview.png">
+</div>
+
+<!-- NAVIGATION -->
+<div class="nav">
+    <a href="../menu_page/menu_page.html">Menu</a>
+    <a href="../cart/cart.html">Cart</a>
+    <a href="../Aboutus/aboutus.html">About Us</a>
+    <a href="../order_history/order_history.html">Order History</a>
+</div>
+
+<!-- MASONRY FOOD GRID -->
+<div class="grid">
+    <img src="idlii.webp">
+    <img src="chapati.png">
+    <img src="chiken.png">
+    <img src="combo.jpg">
+    <img src="gulab.png">
+    <img src="rice.jpg">
+    <img src="roti.jpg">
+    <img src="rajma.png">
+    <img src="jilebi.png">
+    <img src="masaladosa.png">
+    <img src="thali.jpg">
+    <img src="dosa'.jpg">
+    <img src="idly.png">
+    <img src="palak.jpg">
+    <img src="panipuri.png">
+    <img src="pancakes-576800_1280.webp">
+</div>
+
+<!-- ✅ BACK TO TOP BUTTON (ONLY ADDITION) -->
+<button onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+style="
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #d69a17;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 30px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    cursor: pointer;
+">
+⬆ Back to Top
+</button>
+
+</body>
+</html>

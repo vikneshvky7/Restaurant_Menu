@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Order History | Namoora Sobagu</title>
+
+<style>
+    body {
+        margin: 0;
+        background: #f7e15b;
+        font-family: Arial, sans-serif;
+        padding: 20px;
+    }
+
+    h1 {
+        text-align: center;
+        background: #d69a17;
+        padding: 20px;
+        margin: 0;
+        font-size: 32px;
+        color: black;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    }
+
+    .back-btn {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        background: white;
+        padding: 12px 20px;
+        border-radius: 30px;
+        font-size: 18px;
+        font-weight: bold;
+        text-decoration: none;
+        color: black;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+        transition: 0.3s;
+    }
+    .back-btn:hover { background: #d69a17; color: white; }
+
+    .history-box {
+        max-width: 800px;
+        background: white;
+        padding: 25px;
+        margin: 40px auto;
+        border-radius: 15px;
+        box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+    }
+
+    .order-block {
+        margin-bottom: 25px;
+        padding: 15px;
+        border-radius: 12px;
+        background: #fff8d1;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+
+    .item-line {
+        font-size: 18px;
+        margin: 6px 0;
+    }
+
+    .custom {
+        font-size: 15px;
+        color: #7a0c0c;
+        margin-left: 15px;
+    }
+
+    .cust-details {
+        background: #ffe8a8;
+        padding: 10px;
+        border-radius: 10px;
+        margin-bottom: 10px;
+        font-size: 17px;
+        line-height: 1.5;
+    }
+
+    .clear-btn {
+        width: 100%;
+        padding: 15px;
+        background: red;
+        color: white;
+        font-size: 18px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        margin-top: 20px;
+    }
+</style>
+
+<script>
+function loadHistory() {
+    let orders = JSON.parse(localStorage.getItem("orderHistory")) || [];
+    let box = document.getElementById("history");
+
+    if (orders.length === 0) {
+        box.innerHTML = `<p style="text-align:center;font-size:20px;">No previous orders.</p>`;
+        return;
+    }
+
+    box.innerHTML = "";
+
+    orders.forEach(order => {
+
+        let html = `
+            <div class="order-block">
+                <h3>Date: ${order.date}</h3>
+
+                <div class="cust-details">
+                    <b>Name:</b> ${order.customer?.name || "Not Provided"} <br>
+                    <b>Mobile:</b> ${order.customer?.phone || "Not Provided"} <br>
+                    <b>Address:</b> ${order.customer?.address || "Not Provided"}
+                </div>
+        `;
+
+        order.items.forEach(item => {
+
+            let name = item.name || item.item || "Unnamed Item";
+            let price = item.price || 0;
+
+            html += `
+                <div class="item-line">
+                    ${name} — ₹${price} + ₹10 packing
+                </div>
+                ${item.customization ? `<div class='custom'>Customization: ${item.customization}</div>` : ""}
+            `;
+        });
+
+        html += `
+                <h3 style="margin-top:10px;">Total: ₹${order.total}</h3>
+            </div>
+        `;
+
+        box.innerHTML += html;
+    });
+}
+
+function clearHistory() {
+    localStorage.removeItem("orderHistory");
+    alert("Order history cleared!");
+    loadHistory();
+}
+
+window.onload = loadHistory;
+</script>
+
+</head>
+<body>
+
+<a href="../cart/cart.html" class="back-btn">← Back</a>
+
+<h1>Order History</h1>
+
+<div class="history-box">
+    <div id="history"></div>
+
+    <button class="clear-btn" onclick="clearHistory()">Clear Order History</button>
+</div>
+
+</body>
+</html>

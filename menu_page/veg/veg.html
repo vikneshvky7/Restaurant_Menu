@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Veg Menu | Namoora Sobagu</title>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #f7e15b;
+        font-family: Arial, sans-serif;
+    }
+
+    h1 {
+        margin: 0;
+        background: #d69a17;
+        padding: 20px;
+        text-align: center;
+        font-size: 35px;
+        font-weight: bold;
+        color: black;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    }
+
+    .back-btn {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        background: white;
+        padding: 12px 20px;
+        border-radius: 30px;
+        font-size: 18px;
+        font-weight: bold;
+        text-decoration: none;
+        color: black;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    }
+    .back-btn:hover { background: #d69a17; color: white; }
+
+    .cart-btn {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: white;
+        padding: 12px 20px;
+        border-radius: 30px;
+        font-size: 18px;
+        font-weight: bold;
+        color: black;
+        text-decoration: none;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    }
+    .cart-btn:hover { background: #d69a17; color: white; }
+
+    .category-title {
+        margin-top: 40px;
+        text-align: center;
+        font-size: 28px;
+        font-weight: bold;
+        color: #7a0c0c;
+        background: white;
+        padding: 12px;
+        border-radius: 10px;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+    .menu-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        gap: 25px;
+        padding: 20px 30px 50px;
+    }
+
+    .item-card {
+        background: white;
+        padding: 12px;
+        border-radius: 15px;
+        box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+        transition: .3s;
+        text-align: center;
+    }
+    .item-card:hover { transform: scale(1.05); }
+
+    .item-card img {
+        width: 100%;
+        height: 180px;
+        border-radius: 12px;
+        object-fit: cover;
+    }
+
+    .item-name {
+        margin-top: 10px;
+        font-size: 20px;
+        font-weight: bold;
+        color: #7a0c0c;
+    }
+
+    .item-price {
+        margin-top: 5px;
+        font-size: 18px;
+        font-weight: bold;
+        color: green;
+    }
+
+    .add-btn {
+        margin-top: 10px;
+        width: 90%;
+        padding: 10px;
+        background: #d69a17;
+        border: none;
+        color: white;
+        border-radius: 30px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    .add-btn:hover { background: #7a0c0c; }
+</style>
+
+<script>
+function addToCart(name, price) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    cart.push({ name: name, price: price, customization: "" });
+    localStorage.setItem("cart", JSON.stringify(cart));
+    alert(name + " added to cart!");
+}
+</script>
+
+</head>
+<body>
+
+<a href="../menu_page.html" class="back-btn">← Back</a>
+<a href="../../cart/cart.html" class="cart-btn">🛒 Cart</a>
+
+<h1>VEG MENU</h1>
+
+
+<!-- ⭐ APPETIZERS & SNACKS -->
+<div class="category-title">Appetizers & Snacks</div>
+<div class="menu-grid">
+
+<script>
+const appetizers = [
+    ["aloo tikki chat.jpg", "Aloo Tikki Chat", 50],
+    ["bhel puri.jpg", "Bhel Puri", 40],
+    ["dhai vada.jpg", "Dhai Vada", 60],
+    ["dhokla.jpg", "Dhokla", 55],
+    ["kachori.jpg", "Kachori", 35],
+    ["khandvi.jpg", "Khandvi", 45],
+    ["pakoda.jpg", "Pakoda", 40],
+    ["pani puri.jpg", "Pani Puri", 30],
+    ["samosaa.jpg", "Samosa", 25],
+    ["vada pav.jpg", "Vada Pav", 30]
+];
+
+appetizers.forEach(item => {
+document.write(`
+<div class="item-card">
+    <img src="Appetizers and Snacks (StartersChaat)/${item[0]}">
+    <div class="item-name">${item[1]}</div>
+    <div class="item-price">₹${item[2]}</div>
+    <button class="add-btn" onclick="addToCart('${item[1]}', ${item[2]})">Add to Cart</button>
+</div>
+`);
+});
+</script>
+</div>
+
+
+
+<!-- ⭐ LENTILS & LEGUMES -->
+<div class="category-title">Lentils & Legumes</div>
+<div class="menu-grid">
+
+<script>
+const dals = [
+    ["brown lental carry masor dal.jpg", "Brown Lentil Curry Masor Dal", 70],
+    ["channa masala.jpg", "Channa Masala", 80],
+    ["dal fry.jpg", "Dal Fry", 70],
+    ["dal makani.jpg", "Dal Makhani", 90],
+    ["dal tadka.jpg", "Dal Tadka", 75],
+    ["misal pav.jpg", "Misal Pav", 60],
+    ["panchemel dal.jpg", "Panchemel Dal", 85],
+    ["raajma masala.jpg", "Raajma Masala", 85],
+    ["sambar.jpg", "Sambar", 60]
+];
+
+dals.forEach(item => {
+document.write(`
+<div class="item-card">
+    <img src="Lentil and Legume Curries (Dals & Legumes)/${item[0]}">
+    <div class="item-name">${item[1]}</div>
+    <div class="item-price">₹${item[2]}</div>
+    <button class="add-btn" onclick="addToCart('${item[1]}', ${item[2]})">Add to Cart</button>
+</div>
+`);
+});
+</script>
+</div>
+
+
+
+<!-- ⭐ PANEER DISHES -->
+<div class="category-title">Paneer Dishes</div>
+<div class="menu-grid">
+
+<script>
+const paneer = [
+    ["Chilli Paneer.jpg", "Chilli Paneer", 120],
+    ["Kadai Paneer.jpg", "Kadai Paneer", 130],
+    ["Matar Paneer.jpg", "Matar Paneer", 120],
+    ["Palak Paneer.jpg", "Palak Paneer", 120],
+    ["Paneer Bhurji.jpg", "Paneer Bhurji", 110],
+    ["Paneer Butter Masala.jpg", "Paneer Butter Masala", 140],
+    ["Paneer Korma.jpg", "Paneer Korma", 120],
+    ["Paneer Pasanda.jpg", "Paneer Pasanda", 130],
+    ["Paneer Tikka Masala.jpg", "Paneer Tikka Masala", 140],
+    ["Shahi Paneer.jpg", "Shahi Paneer", 150]
+];
+
+paneer.forEach(item => {
+document.write(`
+<div class="item-card">
+    <img src="Paneer (Indian Cottage Cheese) Dishes/${item[0]}">
+    <div class="item-name">${item[1]}</div>
+    <div class="item-price">₹${item[2]}</div>
+    <button class="add-btn" onclick="addToCart('${item[1]}', ${item[2]})">Add to Cart</button>
+</div>
+`);
+});
+</script>
+</div>
+
+
+
+<!-- ⭐ RICE & BREADS -->
+<div class="category-title">Rice & Breads</div>
+<div class="menu-grid">
+
+<script>
+const rice = [
+    ["Bisi Bele Bath puri.jpg", "Bisi Bele Bath Puri", 70],
+    ["Naan.jpg", "Naan", 25],
+    ["Tandoori Roti.jpg", "Tandoori Roti", 20],
+    ["Lemon Rice.jpg", "Lemon Rice", 60],
+    ["Curd Rice.jpg", "Curd Rice", 50],
+    ["Pulao.jpg", "Pulao", 80],
+    ["Thepla.jpg", "Thepla", 30],
+    ["Vegetable Biryani.jpg", "Vegetable Biryani", 100],
+    ["Taftan.jpg", "Taftan", 40],
+    ["Paratha.jpg", "Paratha", 20]
+];
+
+rice.forEach(item => {
+document.write(`
+<div class="item-card">
+    <img src="Rice Dishes and Breads (Staples)/${item[0]}">
+    <div class="item-name">${item[1]}</div>
+    <div class="item-price">₹${item[2]}</div>
+    <button class="add-btn" onclick="addToCart('${item[1]}', ${item[2]})">Add to Cart</button>
+</div>
+`);
+});
+</script>
+</div>
+
+
+
+<!-- ⭐ VEGETABLE CURRIES -->
+<div class="category-title">Vegetable Curries</div>
+<div class="menu-grid">
+
+<script>
+const sabzis = [
+    ["aloo gobi.jpg", "Aloo Gobi", 80],
+    ["Avial.jpg", "Avial", 85],
+    ["Baingan Bharta.jpg", "Baingan Bharta", 90],
+    ["Bhindi Masala.jpg", "Bhindi Masala", 85],
+    ["Dum Aloo.jpg", "Dum Aloo", 90],
+    ["Gatte ki Sabzi.jpg", "Gatte ki Sabzi", 90],
+    ["Malai Kofta.jpg", "Malai Kofta", 110],
+    ["Mixed Vegetable Curry.jpg", "Mixed Vegetable Curry", 90],
+    ["Sarson ka Saag.jpg", "Sarson ka Saag", 95],
+    ["Undhiyu.jpg", "Undhiyu", 100]
+];
+
+sabzis.forEach(item => {
+document.write(`
+<div class="item-card">
+    <img src="Vegetable Curries and Dry Preparations (Sabzis)/${item[0]}">
+    <div class="item-name">${item[1]}</div>
+    <div class="item-price">₹${item[2]}</div>
+    <button class="add-btn" onclick="addToCart('${item[1]}', ${item[2]})">Add to Cart</button>
+</div>
+`);
+});
+</script>
+
+
+</div>
+
+
+<br><br><br>
+
+</body>
+</html>

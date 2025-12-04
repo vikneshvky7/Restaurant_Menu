@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Non-Veg Menu | Namoora Sobagu</title>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #f7e15b;
+        font-family: Arial, sans-serif;
+    }
+
+    h1 {
+        margin: 0;
+        background: #d69a17;
+        padding: 20px;
+        text-align: center;
+        font-size: 35px;
+        font-weight: bold;
+        color: black;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    }
+
+    .back-btn {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        background: white;
+        padding: 12px 20px;
+        border-radius: 30px;
+        font-size: 18px;
+        font-weight: bold;
+        text-decoration: none;
+        color: black;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    }
+    .back-btn:hover { background: #d69a17; color: white; }
+
+    .cart-btn {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: white;
+        padding: 12px 20px;
+        border-radius: 30px;
+        font-size: 18px;
+        font-weight: bold;
+        color: black;
+        text-decoration: none;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    }
+    .cart-btn:hover { background: #d69a17; color: white; }
+
+    .category-title {
+        margin-top: 40px;
+        text-align: center;
+        font-size: 27px;
+        font-weight: bold;
+        color: #7a0c0c;
+        background: white;
+        padding: 12px;
+        border-radius: 10px;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+    .menu-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        gap: 25px;
+        padding: 20px 30px 50px;
+    }
+
+    .item-card {
+        background: white;
+        padding: 12px;
+        border-radius: 15px;
+        box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+        text-align: center;
+        transition: 0.3s;
+    }
+
+    .item-card:hover { transform: scale(1.05); }
+
+    .item-card img {
+        width: 100%;
+        height: 180px;
+        border-radius: 12px;
+        object-fit: cover;
+    }
+
+    .item-name {
+        margin-top: 10px;
+        font-size: 20px;
+        font-weight: bold;
+        color: #7a0c0c;
+    }
+
+    .item-price {
+        margin-top: 5px;
+        font-size: 18px;
+        font-weight: bold;
+        color: green;
+    }
+
+    .add-btn {
+        margin-top: 10px;
+        width: 90%;
+        padding: 10px;
+        background: #d69a17;
+        border: none;
+        color: white;
+        border-radius: 30px;
+        font-size: 16px;
+    }
+    .add-btn:hover { background: #7a0c0c; }
+</style>
+
+<script>
+function addToCart(name, price) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    cart.push({ name: name, price: price, customization: "" });
+    localStorage.setItem("cart", JSON.stringify(cart));
+    alert(name + " added to cart!");
+}
+</script>
+
+</head>
+<body>
+
+<a href="../menu_page.html" class="back-btn">← Back</a>
+<a href="../../cart/cart.html" class="cart-btn">🛒 Cart</a>
+
+<h1>NON-VEG MENU</h1>
+
+<!-- ⭐ CHICKEN DISHES -->
+<div class="category-title">Chicken Dishes</div>
+<div class="menu-grid">
+
+<script>
+const chicken = [
+    ["butter chiken.jpg", "Butter Chicken", 220],
+    ["Chettinad Chicken Curry.jpg", "Chettinad Chicken Curry", 200],
+    ["Chicken 65.jpg", "Chicken 65", 160],
+    ["Chicken Korma.jpg", "Chicken Korma", 170],
+    ["Chicken Tikka Masala.jpg", "Chicken Tikka Masala", 200],
+    ["Chilli Chicken.jpg", "Chilli Chicken", 160],
+    ["Hyderabadi Chicken Biryani.jpg", "Hyderabadi Chicken Biryani", 190],
+    ["Kadai Chicken.jpg", "Kadai Chicken", 180],
+    ["Murgh Makhani.jpg", "Murgh Makhani", 210],
+    ["Tandoori Chicken.jpg", "Tandoori Chicken", 220]
+];
+
+
+chicken.forEach(item => {
+document.write(`
+<div class="item-card">
+    <img src="chiken dishes/${item[0]}">
+    <div class="item-name">${item[1]}</div>
+    <div class="item-price">₹${item[2]}</div>
+    <button class="add-btn" onclick="addToCart('${item[1]}', ${item[2]})">Add to Cart</button>
+</div>
+
+`);
+});
+</script>
+</div>
+
+
+<!-- ⭐ EGG DISHES -->
+<div class="category-title">Egg Dishes</div>
+<div class="menu-grid">
+
+<script>
+const egg = [
+    ["Egg Biryani.jpg", "Egg Biryani", 130],
+    ["Egg Curry.jpg", "Egg Curry", 90],
+    ["Akoori (Parsi Scrambled Eggs).jpg", "Akoori", 70],
+    ["Chettinad Egg Curry.jpg", "Chettinad Egg Curry", 90],
+    ["Egg Bhurji (Scrambled Eggs).jpg", "Egg Bhurji", 80],
+    ["Egg Kothu Parotta.jpg", "Egg Kothu Parotta", 70],
+    ["Egg Pakora.jpg", "Egg Pakora", 50],
+    ["Egg Tadka Dal.jpg", "Egg Tadka Dal", 70],
+    ["Mutta Roast (Egg Roast).jpg", "Egg Roast", 120],
+    ["Nargisi Kofta.jpg", "Nargisi Kofta", 110]
+];
+
+
+egg.forEach(item => {
+document.write(`
+<div class="item-card">
+    <img src="Egg Dishes/${item[0]}">
+    <div class="item-name">${item[1]}</div>
+    <div class="item-price">₹${item[2]}</div>
+    <button class="add-btn" onclick="addToCart('${item[1]}', ${item[2]})">Add to Cart</button>
+</div>
+`);
+});
+
+
+</script>
+</div>
+
+
+
+<!-- ⭐ SEAFOOD DISHES -->
+<div class="category-title">Seafood Dishes</div>
+<div class="menu-grid">
+
+<script>
+const sea = [
+    ["Amritsari Fish Fry.jpg", "Amritsari Fish Fry", 150],
+    ["Bengali Fish Fry.jpg", "Bengali Fish Fry", 160],
+    ["Bombil Fry (Bombay Duck Fry).jpg", "Bombil Fry (Bombay Duck Fry)", 170],
+    ["Chingri Malai Curry.jpg", "Chingri Malai Curry", 220],
+    ["Crab Masala.jpg", "Crab Masala", 250],
+    ["Fish Curry.jpg", "Fish Curry", 170],
+    ["Goan Fish Curry.jpg", "Goan Fish Curry", 190],
+    ["Meen Pollichathu (Fish cooked in Banana Leaf).jpg", "Meen Pollichathu", 200],
+    ["Prawn Masala.jpg", "Prawn Masala", 210],
+    ["Squid Fry.jpg", "Squid Fry", 190],
+    ["Tandoori Fish Tikka.jpg", "Tandoori Fish Tikka", 230]
+];
+
+sea.forEach(item => {
+document.write(`
+<div class="item-card">
+    <img src="Seafood Dishes/${item[0]}">
+    <div class="item-name">${item[1]}</div>
+    <div class="item-price">₹${item[2]}</div>
+    <button class="add-btn" onclick="addToCart('${item[1]}', ${item[2]})">Add to Cart</button>
+</div>
+`);
+});
+</script>
+
+</div>
+
+
+
+<!-- ⭐ MUTTON & KEBABS -->
+<div class="category-title">Mutton & Kebabs</div>
+<div class="menu-grid">
+
+<script>
+const mutton = [
+    ["Bhuna Gosht.jpg", "Bhuna Gosht", 250],
+    ["Galouti Kebab.jpg", "Galouti Kebab", 200],
+    ["Goan Mutton Vindaloo.jpg", "Goan Mutton Vindaloo", 260],
+    ["Hyderabadi Marag.jpg", "Hyderabadi Marag", 220],
+    ["Hyderabadi Mutton Biryani.jpg", "Hyderabadi Mutton Biryani", 280],
+    ["Kosha Mangsho.jpg", "Kosha Mangsho", 270],
+    ["Mutton Korma.jpg", "Mutton Korma", 230],
+    ["Mutton Rogan Josh.jpg", "Mutton Rogan Josh", 260],
+    ["Mutton Stew.jpg", "Mutton Stew", 240],
+    ["Nihari Gosht.jpg", "Nihari Gosht", 250]
+];
+
+mutton.forEach(item => {
+document.write(`
+<div class="item-card">
+    <img src="MuttonLamb Dishes/${item[0]}">
+    <div class="item-name">${item[1]}</div>
+    <div class="item-price">₹${item[2]}</div>
+    <button class="add-btn" onclick="addToCart('${item[1]}', ${item[2]})">Add to Cart</button>
+</div>
+`);
+});
+</script>
+
+</div>
+<!-- ⭐KEBABS -->
+<div class="category-title"> Kebabs</div>
+<div class="menu-grid">
+
+<script>
+const kebabs = [
+    ["Chapli Kebab.jpg", "Chapli Kebab", 180],
+    ["Chicken Tikka.jpg", "Chicken Tikka", 200],
+    ["Hariyali Kebab.jpg", "Hariyali Kebab", 180],
+    ["Mutton Boti Kebab.jpg", "Mutton Boti Kebab", 220],
+    ["Peshawari Kebab.jpg", "Peshawari Kebab", 200],
+    ["Reshmi Kebab.jpg", "Reshmi Kebab", 190],
+    ["Seekh Kebab.jpg", "Seekh Kebab", 180],
+    ["Shami Kebab.jpg", "Shami Kebab", 160],
+    ["Tangdi Kebab.jpg", "Tangdi Kebab", 210],
+    ["Tunde Ke Kebab.jpg", "Tunde Ke Kebab", 230]
+];
+
+kebabs.forEach(item => {
+document.write(`
+<div class="item-card">
+    <img src="Kebabs and Tikkas/${item[0]}">
+    <div class="item-name">${item[1]}</div>
+    <div class="item-price">₹${item[2]}</div>
+    <button class="add-btn" onclick="addToCart('${item[1]}', ${item[2]})">Add to Cart</button>
+</div>
+`);
+});
+</script>
+
+
+</div>
+
+<br><br><br>
+
+</body>
+</html>

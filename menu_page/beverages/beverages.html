@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beverages Menu | Namoora Sobagu</title>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #f7e15b;
+        font-family: Arial, sans-serif;
+    }
+
+    h1 {
+        margin: 0;
+        background: #d69a17;
+        padding: 20px;
+        text-align: center;
+        font-size: 35px;
+        font-weight: bold;
+        color: black;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    }
+
+    .back-btn, .cart-btn {
+        position: fixed;
+        top: 20px;
+        padding: 12px 20px;
+        background: white;
+        border-radius: 30px;
+        font-size: 18px;
+        font-weight: bold;
+        color: black;
+        text-decoration: none;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    }
+    .back-btn { left: 20px; }
+    .cart-btn { right: 20px; }
+    .back-btn:hover, .cart-btn:hover {
+        background: #d69a17;
+        color: white;
+    }
+
+    .category-title {
+        margin-top: 40px;
+        text-align: center;
+        font-size: 27px;
+        font-weight: bold;
+        color: #7a0c0c;
+        background: white;
+        padding: 12px;
+        border-radius: 10px;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+    .menu-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        gap: 25px;
+        padding: 20px 30px 50px;
+    }
+
+    .item-card {
+        background: white;
+        padding: 12px;
+        border-radius: 15px;
+        box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+        text-align: center;
+        transition: 0.3s;
+    }
+    .item-card:hover { transform: scale(1.05); }
+
+    .item-card img {
+        width: 100%;
+        height: 180px;
+        border-radius: 12px;
+        object-fit: cover;
+    }
+
+    .item-name {
+        margin-top: 10px;
+        font-size: 20px;
+        font-weight: bold;
+        color: #7a0c0c;
+    }
+
+    .item-price {
+        margin-top: 5px;
+        font-size: 18px;
+        font-weight: bold;
+        color: green;
+    }
+
+    .add-btn {
+        margin-top: 10px;
+        width: 90%;
+        padding: 10px;
+        background: #d69a17;
+        border: none;
+        color: white;
+        border-radius: 30px;
+        font-size: 16px;
+    }
+    .add-btn:hover { background: #7a0c0c; }
+</style>
+
+<script>
+function addToCart(name, price) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    cart.push({ name: name, price: price, customization: "" });
+    localStorage.setItem("cart", JSON.stringify(cart));
+    alert(name + " added to cart!");
+}
+</script>
+
+</head>
+<body>
+
+<a href="../menu_page.html" class="back-btn">← Back</a>
+<a href="../../cart/cart.html" class="cart-btn">🛒 Cart</a>
+
+<h1>BEVERAGES MENU</h1>
+
+<!-- ⭐ CHAI & TEAS -->
+<div class="category-title">Chai & Teas</div>
+<div class="menu-grid">
+
+<script>
+const chai = [
+    ["Assam Tea.jpg", "Assam Tea", 20],
+    ["Cardamom Chai.jpg", "Cardamom Chai", 25],
+    ["Cutting Chai.jpg", "Cutting Chai", 15],
+    ["Darjeeling Tea.jpg", "Darjeeling Tea", 30],
+    ["Ginger Chai.jpg", "Ginger Chai", 20],
+    ["Kashmiri Kahwa.jpg", "Kashmiri Kahwa", 35],
+    ["Lemongrass Chai.jpg", "Lemongrass Chai", 25],
+    ["Masala Chai.jpg", "Masala Chai", 25],
+    ["Noon Chai (Salt Tea).jpg", "Noon Chai", 30],
+    ["Tandoori Chai.jpg", "Tandoori Chai", 35]
+];
+
+chai.forEach(item => {
+document.write(`
+<div class="item-card">
+    <img src="Chai & Teas/${item[0]}">
+    <div class="item-name">${item[1]}</div>
+    <div class="item-price">₹${item[2]}</div>
+    <button class="add-btn" onclick="addToCart('${item[1]}', ${item[2]})">Add to Cart</button>
+</div>
+`);
+});
+</script>
+</div>
+
+<!-- ⭐ COFFEE PREPARATIONS -->
+<div class="category-title">Coffee Preparations</div>
+<div class="menu-grid">
+
+<script>
+const coffee = [
+    ["Bella Kaapi (Jaggery Coffee).jpg", "Bella Kaapi (Jaggery Coffee)", 30],
+    ["Cold Coffee with Ice Cream.jpg", "Cold Coffee with Ice Cream", 70],
+    ["Filter Kaapi.jpg", "Filter Kaapi", 25],
+    ["Indian Filter Coffee.jpg", "Indian Filter Coffee", 25],
+    ["Indian Style Beaten Coffee (Dalgona).jpg", "Beaten Coffee (Dalgona)", 40],
+    ["Karupatti Coffee (Palm Jaggery Coffee).jpg", "Karupatti Coffee", 30],
+    ["Kumbakonam Degree Coffee.jpg", "Kumbakonam Degree Coffee", 35],
+    ["Mysore Coffee.jpg", "Mysore Coffee", 30],
+    ["Sukku Kaapi (Dry Ginger Coffee).jpg", "Sukku Kaapi (Dry Ginger Coffee)", 25],
+    ["Tandoori Coffee.jpg", "Tandoori Coffee", 40]
+];
+
+coffee.forEach(item => {
+document.write(`
+<div class="item-card">
+    <img src="Coffee Preparations/${item[0]}">
+    <div class="item-name">${item[1]}</div>
+    <div class="item-price">₹${item[2]}</div>
+    <button class="add-btn" onclick="addToCart('${item[1]}', ${item[2]})">Add to Cart</button>
+</div>
+`);
+});
+</script>
+
+</div>
+
+
+
+
+
+
+<!-- ⭐ COOLING SUMMER DRINKS -->
+<div class="category-title">Cooling Summer Drinks</div>
+<div class="menu-grid">
+
+<script>
+const summer = [
+    ["Aam Panna.jpg", "Aam Panna", 40],
+    ["Bel Sharbat.jpg", "Bel Sharbat", 35],
+    ["Imli ka Amlana.jpg", "Imli ka Amlana", 30],
+    ["Kokum Sharbat.jpg", "Kokum Sharbat", 35],
+    ["Nannari Sharbat.jpg", "Nannari Sharbat", 30],
+    ["Nimbu Pani (Shikanji).jpg", "Nimbu Pani (Shikanji)", 20],
+    ["Phalsa Sharbat.jpg", "Phalsa Sharbat", 40],
+    ["Rose Sharbat (Gulab Sharbat).jpg", "Rose Sharbat", 25],
+    ["Sattu Sharbat.jpg", "Sattu Sharbat", 35],
+    ["Sugarcane Juice (Ganne ka Ras).jpg", "Sugarcane Juice", 30]
+];
+
+summer.forEach(item => {
+document.write(`
+<div class="item-card">
+    <img src="Cooling Summer Drinks (Sharbat & others)/${item[0]}">
+    <div class="item-name">${item[1]}</div>
+    <div class="item-price">₹${item[2]}</div>
+    <button class="add-btn" onclick="addToCart('${item[1]}', ${item[2]})">Add to Cart</button>
+</div>
+`);
+});
+</script>
+
+</div>
+
+
+<!-- ⭐ LASSIS & MILK DRINKS -->
+<div class="category-title">Lassis & Milk-Based Drinks</div>
+<div class="menu-grid">
+
+<script>
+const lassis = [
+    ["Badam Milk.jpg", "Badam Milk", 45],
+    ["Chaas (Buttermilk).jpg", "Chaas (Buttermilk)", 20],
+    ["Falooda.jpg", "Falooda", 70],
+    ["Mango Lassi.jpg", "Mango Lassi", 60],
+    ["Masala Chaas.jpg", "Masala Chaas", 25],
+    ["Piyush.jpg", "Piyush", 40],
+    ["Rose Lassi.jpg", "Rose Lassi", 50],
+    ["Salted Lassi.jpg", "Salted Lassi", 25],
+    ["Sweet Lassi.jpg", "Sweet Lassi", 30],
+    ["Thandai.jpg", "Thandai", 50]
+];
+
+lassis.forEach(item => {
+document.write(`
+<div class="item-card">
+    <img src="Lassis & Milk-Based Drinks/${item[0]}">
+    <div class="item-name">${item[1]}</div>
+    <div class="item-price">₹${item[2]}</div>
+    <button class="add-btn" onclick="addToCart('${item[1]}', ${item[2]})">Add to Cart</button>
+</div>
+`);
+});
+</script>
+
+</div>
+
+
+<!-- ⭐ REGIONAL DRINKS -->
+<div class="category-title">Regional & Traditional Drinks</div>
+<div class="menu-grid">
+
+<script>
+const regional = [
+    ["Aamras.jpg", "Aamras", 45],
+    ["Apo (Apong).jpg", "Apo (Apong)", 30],
+    ["Buransh Juice (Rhododendron Squash).jpg", "Buransh Juice", 35],
+    ["Feni.jpg", "Feni", 60],
+    ["Handia (Rice Beer).jpg", "Handia (Rice Beer)", 50],
+    ["Mahua Drink.jpg", "Mahua Drink", 55],
+    ["Neer Mor.jpg", "Neer Mor", 20],
+    ["Panakam.jpg", "Panakam", 25],
+    ["Sol Kadhi.jpg", "Sol Kadhi", 30],
+    ["Toddy (Palm Wine).jpg", "Toddy (Palm Wine)", 40]
+];
+
+regional.forEach(item => {
+document.write(`
+<div class="item-card">
+    <img src="Regional & Traditional Drinks/${item[0]}">
+    <div class="item-name">${item[1]}</div>
+    <div class="item-price">₹${item[2]}</div>
+    <button class="add-btn" onclick="addToCart('${item[1]}', ${item[2]})">Add to Cart</button>
+</div>
+`);
+});
+</script>
+
+</div>
+
+
+<br><br><br>
+
+</body>
+</html>
